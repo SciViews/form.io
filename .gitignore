@@ -34,3 +34,6 @@ vignettes/*.pdf
 
 # Shiny token, see https://shiny.rstudio.com/articles/shinyapps.html
 rsconnect/
+
+# form.io.R should be downloaded from the net
+R/form.io.R
