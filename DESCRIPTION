@@ -11,8 +11,8 @@ Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),
 Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
 Depends: R (>= 3.6.0)
 Imports: svMisc, stats, knitr, rmarkdown, glue, pander, data.io
-Suggests: covr, testthat, spelling, broom, data.table
-Remotes: SciViews/data.io
+Suggests: covr, testthat, spelling, broom, data.table, chart, ggplot2
+Remotes: SciViews/data.io, SciViews/chart
 License: MIT + file LICENSE
 URL: https://github.com/SciViews/form.io, https://www.sciviews.org/form.io/
 BugReports: https://github.com/SciViews/form.io/issues

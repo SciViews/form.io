@@ -46,7 +46,9 @@ linkcolor: blue
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, comment = "#>")
 
-SciViews::R()
+# Should use that SciViews::R()
+library(data.io)
+library(chart)
 #options(form.io_captioner = FALSE)
 library(form.io)
 #install_captioner()
@@ -119,7 +121,7 @@ With `label` being the identifier to use in `\@ref(fig:label)` or `\@ref(tab:lab
 The feature will be implemented in one of the `SciViews::R` package (the 'form.io' package looks like a natural fit). So, we need it (at the end, it would be nice to have the feature directly available after `SciViews::R()`). 
 
 ```{r}
-SciViews::R()
+#SciViews::R()
 library(form.io)
 ```
 
