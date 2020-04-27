@@ -1,0 +1,23 @@
+Package: form.io
+Type: Package
+Version: 0.1.0
+Date: 2020-04-27
+Title: 'SciViews' - Objects formatting for R Markdown outputs
+Description: Supplements to 'rmarkdown' and 'knitr' to output nicely formatted
+  tables, figures and equations in R Markdown documents with caption.
+Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),
+  email = "phgrosjean@sciviews.org",
+  comment = c(ORCID = "0000-0002-2694-9471")))
+Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
+Depends: R (>= 3.6.0)
+Imports: svMisc, stats, knitr, rmarkdown, glue, pander, data.io
+Suggests: covr, testthat, spelling, broom, data.table
+License: MIT + file LICENSE
+URL: https://github.com/SciViews/form.io, https://www.sciviews.org/form.io/
+BugReports: https://github.com/SciViews/form.io/issues
+LazyData: yes
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
+VignetteBuilder: knitr
+Encoding: UTF-8
+Language: en-US

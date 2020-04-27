@@ -20,6 +20,8 @@
 # produced vignettes
 vignettes/*.html
 vignettes/*.pdf
+doc
+meta
 
 # OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
 .httr-oauth
@@ -35,5 +37,9 @@ vignettes/*.pdf
 # Shiny token, see https://shiny.rstudio.com/articles/shinyapps.html
 rsconnect/
 
-# form.io.R should be downloaded from the net
-R/form.io.R
+# Locally generated pkgdown site
+docs
+docs/
+
+# Mac files
+.DS_Store
