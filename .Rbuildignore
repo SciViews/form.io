@@ -6,7 +6,6 @@ README.md
 FAQ.md
 TODO.md
 LICENSE.md
-LICENSE
 Makefile
 .Rprofile
 ^\.travis\.yml$

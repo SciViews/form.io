@@ -60,7 +60,7 @@ form2 <- function(x, caption = tab(), ...) {
 }
 ```
 
-> 'form.io' allows for numbering and captioning of figures, tables and equations (scientific notation) for many different R Markdown documents. LaTeX as weel as the 'bookdown' R package provide these features, but they are limited to a set of output formats. The solution implemented in 'form.io' works in many places, including the default HTML, PDF and Word export formats, as well as, for R Notebooks. **To experiment with it, download the present file from [here](), open it in RStudio, and look at the various exportation formetas under the _knit_ button.** 
+> 'form.io' allows for numbering and captioning of figures, tables and equations (scientific notation) for many different R Markdown documents. LaTeX as well as the 'bookdown' R package provide these features, but they are limited to a set of output formats. The solution implemented in 'form.io' works in many places, including the default HTML, PDF and Word export formats, as well as, for R Notebooks. **To experiment with it, download the present file from [here](https://raw.githubusercontent.com/SciViews/form.io/master/vignettes/test/test_numbering.Rmd), open it in RStudio, and look at the various exportation formats under the _knit_ button.** 
 
 Text with an [anchor]{id="id:my-anchor"}. And now, a [link](#id:my-anchor) to it. *This shows a bug with PDF: when you click on the link, the page moves up one line too high!* And here is an URL: https://www.sciviews.org.
 
@@ -80,7 +80,7 @@ With 'bookdown' the figures, tables and equations are numbered and captioned if 
 
 - Not very easy to understand for beginners. So, it is better to skip it in an introductory course on statistics, ... but what to do if we also want students to learn how to correctly write a scientific report?
 
-- The legend of tables and figures do not look like legends at all in the `.Rmd` file, and this is against the phylosophy of Markdown.
+- The legend of tables and figures do not look like legends at all in the `.Rmd` file, and this is against the spirit of Markdown.
 
 **What we want:**
 
@@ -110,7 +110,7 @@ Figure: (\-> <-#fig:label) Caption of the figure **with Markdown** syntax.
 <code that generate the display figure here>
 ```
 
-With `label` being the identifier to use in `\@ref(fig:label)` or `\@ref(tab:label)` to reference it. Of course the final caption mut be reworked to include a number, according to the table/figure position in the document, and the same number must be reused in the link produced by `\@ref()`.
+With `label` being the identifier to use in `\@ref(fig:label)` or `\@ref(tab:label)` to reference it. Of course the final caption must be reworked to include a number, according to the table/figure position in the document, and the same number must be reused in the link produced by `\@ref()`.
 
 > Our implementation, as well as, the 'bookdown' one cannot keep links for numbered equations. In fact, numbered equations for Word export are not supported by Pandoc, it seems. So, numbered equations are rendered with a hack that does not permit to back to them, unfortunately.
 
@@ -152,7 +152,7 @@ You see how similar these two look like in the `.Rmd` file? They both are in lin
 
 Why is the generated form important? Because we can use it to format various objects from within R, and output captioned and numbered tables directly. Now, I can reference the tables (Table\ \@ref(tab:my-table) and Table\ \@ref(tab:my-table-chunk), but also future Table\ \@ref(tab:my-table2)).
 
-Mixing online R expressions with R chunks works everywhere, except in R Notebook, because R inline expressions are *not* run in the editor! So, it is much better to place an `Table()` code (with only the caption text as argument) *inside* a chunk. If you don't want to display that line of code (because you want just demonstrate nice and clean R code and after all, the table caption is part of the narration, not the code), you can put it in a distinct chunk, or better, you can put it in the chunk in first position and use `echo=2:n` where `n` is greated or equal to the number of R statements in the chunk.
+Mixing online R expressions with R chunks works everywhere, except in R Notebook, because R inline expressions are *not* run in the editor! So, it is much better to place an `Table()` code (with only the caption text as argument) *inside* a chunk. If you don't want to display that line of code (because you want just demonstrate nice and clean R code and after all, the table caption is part of the narration, not the code), you can put it in a distinct chunk, or better, you can put it in the chunk in first position and use `echo=2:n` where `n` is greater or equal to the number of R statements in the chunk.
 
 ```{r my-table2, echo=2:1000}
 Table("Ceci est une autre légende de ma table de `iris` super^script^.")
@@ -202,7 +202,7 @@ knitr::kable(tail(cars), format = if (knitr::is_latex_output()) "latex" else "pa
 
 # Numbered and referenced figures
 
-The way figures are generated in R Markdown documents, and also the necessity to put the anchor for the label *at the top* of the figure makes things a little bit more complex. Here, we change default values for `fig.cap=` and `out.extra=` to provide at the same time a good caption and a label placed in the figure element itself. But since these are defined as *default values*, the end-user does not have to know these details. He just have to use `Figure()` function in a similair way as `Table()` here above.
+The way figures are generated in R Markdown documents, and also the necessity to put the anchor for the label *at the top* of the figure makes things a little bit more complex. Here, we change default values for `fig.cap=` and `out.extra=` to provide at the same time a good caption and a label placed in the figure element itself. But since these are defined as *default values*, the end-user does not have to know these details. He just have to use `Figure()` function in a similar way as `Table()` here above.
 
 For this demonstration, we will use an image downloaded from the internet: the R logo.
 
@@ -227,7 +227,7 @@ Figure("Caption of my **figure** of `iris` from within an R chunk.",
 ")
 ```
 
-Of course, `Figure()` is compatible with `knitr::include_graphics()` too (**But you cannot use Markdown formattings currently in the legend for LaTeX outputs, and there are other strange things, for instance, if I don't escape the underscorte, it does not work on LaTeX**):
+Of course, `Figure()` is compatible with `knitr::include_graphics()` too (**But you cannot use Markdown formatting currently in the legend for LaTeX outputs, and there are other strange things, for instance, if I don't escape the underscore, it does not work on LaTeX**):
 
 ```{r my-figure-chunk2, echo=FALSE}
 knitr::include_graphics("Rlogo.png")
@@ -263,7 +263,7 @@ Figure|Table: (\#optional-label) Caption text here
 <code that generate the figure or table here>
 ```
 
-However, if you insist on using a more conventional approach by using `fig.cap=` instead, the new mechanims is still compatible with it... just remember to embed your caption text in `fig()`, which gives `fig.cap=fig("My caption text")`. Here is an example:
+However, if you insist on using a more conventional approach by using `fig.cap=` instead, the new mechanism is still compatible with it... just remember to embed your caption text in `fig()`, which gives `fig.cap=fig("My caption text")`. Here is an example:
 
 **Note that this does _not_ work in R Notebook, because it seems to ignore the `fig;cap=` argument!**
 
@@ -316,7 +316,7 @@ And now, a reference to last figure (Fig\ \@ref(fig:my-figure4)).
 
 # Numbered and referenced display equations
 
-Mathjax, the engine used to manage R Markdown and Pandoc equations is able to handle this for HTML and PDF outputs, but not for Word. So, we want an alternate solution that also displays nicely in RStudio. Here it is. See in RStudio how our own implementation previews the equation with the tag set at right and with the equation label in it. This is nice to differenciate numbered and non numbered equations, and also to spot the equation label for future reference. You just have to add `\-> <-tag{eq:label}` at the end of your display equation, just before the final `$$`.
+Mathjax, the engine used to manage R Markdown and Pandoc equations is able to handle this for HTML and PDF outputs, but not for Word. So, we want an alternate solution that also displays nicely in RStudio. Here it is. See in RStudio how our own implementation previews the equation with the tag set at right and with the equation label in it. This is nice to differentiate numbered and non numbered equations, and also to spot the equation label for future reference. You just have to add `\-> <-tag{eq:label}` at the end of your display equation, just before the final `$$`.
 
 $$\sum_{i = 0}^n{x} \tag{eq:sum}$$
 
@@ -375,7 +375,7 @@ $$a^2+b^2=c^2 \tag{eq:pythagoras}$$
 
 - Captions from R chunks for LaTeX outputs do not interpret Markdown formatting yet. Also, you must escape special characters like _, or it will not be rendered correctly.
 
-- Equations numberirng in the 'bookdown' version of PDF seems to be buggy.
+- Equations numbering in the 'bookdown' version of PDF seems to be buggy.
 
 - With R Notebook and LaTeX, links to figures actually ling to first line of the caption. This is also true for the 'bookdown' version of PDF.
 
@@ -387,7 +387,7 @@ $$a^2+b^2=c^2 \tag{eq:pythagoras}$$
 
 - Placement and size of table and figures differ from one to the other format. We have not yet worked that aspect for a more homogeneous result.
 
-- It is currently obligatory to indicate `fig_caption:yes` explicitly in HTLML and Word documents to have the figure captions actually rendered (we plan another solution).
+- It is currently obligatory to indicate `fig_caption:yes` explicitly in HTML and Word documents to have the figure captions actually rendered (we plan another solution).
 
 - In the 'bookdown' version of the Word document, numbered equations are wrongly labelled with their name. In the plain Word version, it is correct.
 
